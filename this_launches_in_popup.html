@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; SameSite=None ; Secure";
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            return document.cookie;
+        }
+    </script>
+    <head>
+        <title>PopupBridge Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>What's your favorite color?</h1>
+        <ul>
+          <li><a href="#red" data-color="red">Red</a></li>
+          <li><a href="#green" data-color="green">Green</a></li>
+          <li><a href="#blue" data-color="blue">Blue</a></li>
+<!--           <li><a href="#cancel">I don't like any of these colors</a></li> -->
+        </ul>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="js/this_launches_in_popup.js"></script>
+        <button onclick="setCookie('username', 'John Doe25', 1000)">Set Cookie</button>
+        <button onclick="alert(getCookie('username'))">Get Cookie</button>
+    </body>
+</html>
+
