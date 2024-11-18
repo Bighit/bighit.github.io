@@ -8,13 +8,13 @@
                 date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
                 expires = "; expires=" + date.toUTCString();
             }
-            document.cookie = name + "=" + (value || "") + expires + ";SameSite=None ; Secure";
+            document.cookie = name + "=" + (value || "") + expires + "; SameSite=None ; Secure";
         }
 
         function getCookie(name) {
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
-            return ca;
+            return document.cookie;
         }
     </script>
     <head>
@@ -32,7 +32,7 @@
         </ul>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="js/this_launches_in_popup.js"></script>
-        <button onclick="setCookie('username', 'John Doe23', 7)">Set Cookie</button>
+        <button onclick="setCookie('username', 'John Doe25', 1000)">Set Cookie</button>
         <button onclick="alert(getCookie('username'))">Get Cookie</button>
     </body>
 </html>
